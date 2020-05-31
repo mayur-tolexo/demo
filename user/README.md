@@ -5,7 +5,7 @@ make run
 
 ### Generate API Documentation
 ```
-make swag
+make doc
 ```
 
 ### To check API

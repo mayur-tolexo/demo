@@ -1,6 +1,12 @@
 {
+    "schemes": [
+        "http",
+        "https"
+    ],
     "swagger": "2.0",
     "info": {
+        "description": "User microservice server.",
+        "title": "User API",
         "contact": {},
         "license": {}
     },

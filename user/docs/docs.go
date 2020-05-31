@@ -167,9 +167,9 @@ var SwaggerInfo = swaggerInfo{
 	Version:     "",
 	Host:        "",
 	BasePath:    "",
-	Schemes:     []string{},
-	Title:       "",
-	Description: "",
+	Schemes:     []string{"http", "https"},
+	Title:       "User API",
+	Description: "User microservice server.",
 }
 
 type s struct{}

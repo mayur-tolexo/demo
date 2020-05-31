@@ -41,7 +41,9 @@ definitions:
     type: object
 info:
   contact: {}
+  description: User microservice server.
   license: {}
+  title: User API
 paths:
   /user/:
     post:
@@ -82,6 +84,9 @@ paths:
       summary: List users
       tags:
       - user
+schemes:
+- http
+- https
 securityDefinitions:
   BasicAuth:
     type: basic

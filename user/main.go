@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mayur-tolexo/demo/user/docs"
+	_ "github.com/mayur-tolexo/demo/user/docs"
 	"github.com/mayur-tolexo/demo/user/handler"
 
 	"github.com/gin-gonic/gin"
@@ -9,12 +9,11 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
+// @title User API
+// @description User microservice server.
+// @schemes http https
 // @securityDefinitions.basic BasicAuth
 func main() {
-	docs.SwaggerInfo.Title = "User API"
-	docs.SwaggerInfo.Description = "User microservice server."
-	docs.SwaggerInfo.Schemes = []string{"http", "https"}
-
 	r := gin.Default()
 
 	r.GET("/users/", handler.ListUser())
