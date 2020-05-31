@@ -1,0 +1,88 @@
+definitions:
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  model.CreateUser:
+    properties:
+      email:
+        example: test@gmail.com
+        type: string
+      name:
+        example: test
+        minLength: 4
+        type: string
+    required:
+    - email
+    type: object
+  model.UserDetail:
+    properties:
+      email:
+        example: test@gmail.com
+        type: string
+      name:
+        example: test
+        type: string
+      user_id:
+        example: 1
+        type: integer
+    type: object
+  model.UserList:
+    properties:
+      user:
+        items:
+          $ref: '#/definitions/model.UserDetail'
+        type: array
+    type: object
+info:
+  contact: {}
+  license: {}
+paths:
+  /user/:
+    post:
+      consumes:
+      - application/json
+      description: create a new user
+      parameters:
+      - description: create user
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserDetail'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: create user
+      tags:
+      - user
+  /users/:
+    get:
+      description: list all the users based on filter given
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserList'
+      summary: List users
+      tags:
+      - user
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
