@@ -1,15 +1,12 @@
-### Run the servince
-```
-make run
-```
 
 ### Generate API Documentation
 ```
 make doc
 ```
-
-### To check API
+### Run the servince
 ```
 make run
-open http://localhost:8080/swagger/index.html
 ```
+
+### Open swagger UI
+http://localhost:8080/swagger/index.html
