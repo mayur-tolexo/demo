@@ -5,8 +5,7 @@ import (
 	"github.com/mayur-tolexo/demo/user/handler"
 
 	"github.com/gin-gonic/gin"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 // @title User API
@@ -18,6 +17,8 @@ func main() {
 
 	r.GET("/users/", handler.ListUser())
 	r.POST("/user/", handler.CreateUser())
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	r.GET("/swagger/*any", func(c *gin.Context) {
+		httpSwagger.WrapHandler(c.Writer, c.Request)
+	})
 	r.Run()
 }

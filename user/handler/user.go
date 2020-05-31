@@ -43,7 +43,9 @@ func CreateUser() func(c *gin.Context) {
 			httputil.NewError(c, http.StatusBadRequest, err)
 			return
 		}
+		user.UserID = 1
 		user.Name = req.Name
+		user.Email = req.Email
 		c.JSON(200, user)
 	}
 }
